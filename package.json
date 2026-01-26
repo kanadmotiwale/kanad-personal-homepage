@@ -1,0 +1,59 @@
+{
+  "name": "personal-homepage",
+  "version": "1.0.0",
+  "description": "Personal homepage built with vanilla HTML, CSS, and ES6+ JavaScript showcasing web development skills and projects",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server . --port=3000 --open=/index.html",
+    "dev": "live-server . --port=3000",
+    "lint": "eslint js/**/*.js",
+    "lint:fix": "eslint js/**/*.js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "html-validate *.html",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "echo 'Ready for deployment to GitHub Pages, Netlify, or Vercel'"
+  },
+  "keywords": [
+    "portfolio",
+    "homepage",
+    "web-development",
+    "html",
+    "css",
+    "javascript",
+    "es6",
+    "responsive",
+    "personal-website",
+    "student-project"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://yourusername.github.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/personal-homepage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/personal-homepage/issues"
+  },
+  "homepage": "https://yourusername.github.io/personal-homepage",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "live-server": "^1.2.2",
+    "html-validate": "^8.15.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
