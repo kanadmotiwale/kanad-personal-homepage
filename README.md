@@ -144,7 +144,7 @@ All the personal content, project descriptions, and technical details are my own
 
 ## Live Demo
 
-**Website:** https://kanadmotiwale.github.io/personal-homepage
+**Website:** https://kanadmotiwale.github.io/kanad-personal-homepage/
 
 ## Code Quality
 
