@@ -148,12 +148,12 @@ All the personal content, project descriptions, and technical details are my own
 
 ## Code Quality
 
-- ✅ ESLint compliant (no errors)
-- ✅ Prettier formatted
-- ✅ W3C HTML valid
-- ✅ All images have alt text
-- ✅ Responsive design tested
-- ✅ Cross-browser compatible
+- ESLint compliant (no errors)
+- Prettier formatted
+- W3C HTML valid
+- All images have alt text
+- Responsive design tested
+- Cross-browser compatible
 
 ## Contact
 
