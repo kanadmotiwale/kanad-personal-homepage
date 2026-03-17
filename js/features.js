@@ -31,12 +31,10 @@ export function animateSkillBars() {
 
 function animateNumber(element, start, end, duration) {
   const startTime = performance.now();
-  const _originalText = element.textContent;
 
   function updateNumber(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-
     const easedProgress = easeOutCubic(progress);
     const currentNumber = Math.round(start + (end - start) * easedProgress);
 
@@ -112,30 +110,30 @@ function createRippleEffect(event, element) {
   const y = event.clientY - rect.top - size / 2;
 
   ripple.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: scale(0);
-        animation: ripple 0.6s ease-out;
-        z-index: 1;
-    `;
+    position: absolute;
+    width: ${size}px;
+    height: ${size}px;
+    left: ${x}px;
+    top: ${y}px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+    z-index: 1;
+  `;
 
   if (!document.querySelector("#ripple-styles")) {
     const style = document.createElement("style");
     style.id = "ripple-styles";
     style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
+      @keyframes ripple {
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    `;
     document.head.appendChild(style);
   }
 
@@ -149,19 +147,7 @@ function createRippleEffect(event, element) {
 }
 
 export function initializeParallaxEffect() {
-  const heroSection = document.querySelector(".hero-section");
-  const profileImage = document.querySelector(".profile-image");
-
-  if (!heroSection || !profileImage) return;
-
-  window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const parallaxSpeed = 0.5;
-
-    if (scrolled < heroSection.offsetHeight) {
-      profileImage.style.transform = `translateY(${scrolled * parallaxSpeed}px) scale(${1 + scrolled * 0.0002})`;
-    }
-  });
+  // Parallax removed intentionally to keep profile image stable on scroll
 }
 
 export function initializeTypingEffect() {
@@ -227,30 +213,11 @@ export function initializeNavigationDots() {
 
   const dotsContainer = document.createElement("div");
   dotsContainer.className = "nav-dots";
-  dotsContainer.style.cssText = `
-        position: fixed;
-        right: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    `;
 
-  sections.forEach((section, _index) => {
+  sections.forEach((section) => {
     const dot = document.createElement("button");
     dot.className = "nav-dot";
     dot.setAttribute("data-section", section.id);
-    dot.style.cssText = `
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid #2563eb;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        `;
 
     dot.addEventListener("click", () => {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -283,6 +250,15 @@ export function initializeNavigationDots() {
 
   window.addEventListener("scroll", updateActiveDot);
   updateActiveDot();
+}
+
+// Fixed: was calling initializeAllFeatures which was never defined
+export function initializeAllFeatures() {
+  enhanceProjectCards();
+  initializeParallaxEffect();
+  initializeTypingEffect();
+  initializeRevealAnimations();
+  initializeNavigationDots();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

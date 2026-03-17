@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>How I Think About Scalability - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .blog-page { padding: 4rem 0 5rem; }
+      .blog-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 600; color: var(--text-muted); text-decoration: none; margin-bottom: 2.5rem; transition: var(--transition); }
+      .blog-back:hover { color: var(--accent); }
+      .blog-hero { background: var(--primary); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 3rem; }
+      .blog-hero h1 { font-size: clamp(1.75rem, 3vw, 2.4rem); color: var(--white); margin-top: 0.75rem; line-height: 1.25; }
+      .blog-hero-meta { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem; font-family: 'DM Sans', sans-serif; }
+      .blog-body h2 { font-size: 1.4rem; color: var(--text-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+      .blog-body p { font-size: 1rem; color: var(--text-body); line-height: 1.85; margin-bottom: 1.25rem; }
+      .blog-nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="projects.html" class="nav-link">All Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link active">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="blog-page">
+        <div class="container" style="max-width:800px;">
+          <a href="ai-generated.html" class="blog-back">← Back to Blogs</a>
+
+          <div class="blog-hero">
+            <span class="blog-tag">System Design</span>
+            <h1>How I Think About Scalability</h1>
+            <p class="blog-hero-meta">March 2026 · 6 min read</p>
+          </div>
+
+          <div class="blog-body">
+            <p>Scalability is one of those words that gets thrown around a lot in software engineering interviews and architecture discussions, but the actual thinking behind it is more nuanced than most people let on. Here is how I approach it after building systems that had to grow.</p>
+
+            <h2>Scalability is Not Just About More Users</h2>
+            <p>The most common mental model for scalability is handling more traffic, but that is only one dimension. When we were scaling FastFindFirm from a few hundred users to several thousand, the bottlenecks were rarely the application servers themselves. They were the database query patterns we had not thought through, the background jobs competing for resources, and the third-party APIs we were hammering without rate limiting.</p>
+            <p>Good scalability thinking means anticipating where the system will hurt before it actually does. That requires understanding the full data flow, not just the happy path.</p>
+
+            <h2>Vertical vs Horizontal Scaling</h2>
+            <p>Vertical scaling means giving your existing server more resources: more CPU, more RAM, more storage. It is fast to implement and requires no code changes, which makes it appealing in the short term. The problem is that it has a ceiling and it creates a single point of failure.</p>
+            <p>Horizontal scaling means adding more instances and distributing the load between them. It is more complex to implement correctly because you have to think about statelessness, session management, and distributed consistency, but it is the only approach that scales without limits in theory.</p>
+
+            <h2>The Database is Almost Always the Bottleneck</h2>
+            <p>After working on several backend systems, I have learned that the database is almost always where performance problems show up first. Poorly indexed tables, N+1 query patterns, and transactions held open for too long will hurt you long before your application code becomes a problem.</p>
+            <p>The things that have helped me most are writing queries that use indexes properly, using connection pooling aggressively, adding read replicas for read-heavy workloads, and being very deliberate about what actually needs to be in a relational database versus a cache or a document store.</p>
+
+            <h2>Design for Failure from the Start</h2>
+            <p>Systems that scale well are not just fast, they degrade gracefully. Circuit breakers, retry logic with exponential backoff, timeouts on every external call, and fallback behaviors for non-critical features are the difference between a system that handles a bad day and one that goes down completely.</p>
+            <p>The most valuable lesson I took from working on enterprise software is that you cannot predict every failure mode, but you can build systems that contain failures instead of propagating them. That mindset, more than any specific technology choice, is what makes a system truly scalable.</p>
+
+            <div class="blog-nav-footer">
+              <a href="blog-cloud.html" class="blog-back">← Previous: Cloud Computing</a>
+              <a href="blog-git.html" class="btn btn-outline-blue">Next: Git Workflows →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

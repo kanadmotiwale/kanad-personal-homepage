@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>Git Workflows - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .blog-page { padding: 4rem 0 5rem; }
+      .blog-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 600; color: var(--text-muted); text-decoration: none; margin-bottom: 2.5rem; transition: var(--transition); }
+      .blog-back:hover { color: var(--accent); }
+      .blog-hero { background: var(--primary); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 3rem; }
+      .blog-hero h1 { font-size: clamp(1.75rem, 3vw, 2.4rem); color: var(--white); margin-top: 0.75rem; line-height: 1.25; }
+      .blog-hero-meta { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem; font-family: 'DM Sans', sans-serif; }
+      .blog-body h2 { font-size: 1.4rem; color: var(--text-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+      .blog-body p { font-size: 1rem; color: var(--text-body); line-height: 1.85; margin-bottom: 1.25rem; }
+      .blog-nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="projects.html" class="nav-link">All Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link active">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="blog-page">
+        <div class="container" style="max-width:800px;">
+          <a href="ai-generated.html" class="blog-back">← Back to Blogs</a>
+
+          <div class="blog-hero">
+            <span class="blog-tag">Developer Workflow</span>
+            <h1>Git Workflows That Actually Work in Teams</h1>
+            <p class="blog-hero-meta">March 2026 · 5 min read</p>
+          </div>
+
+          <div class="blog-body">
+            <p>Git is one of those tools that everyone uses but few people have thought deeply about. When I joined LTIMindtree, the team had a branching strategy that made sense on paper but created constant headaches in practice. Here is what I learned about making Git work for teams rather than against them.</p>
+
+            <h2>Branching Strategy Matters More Than You Think</h2>
+            <p>The two most common strategies are trunk-based development and Gitflow. Trunk-based development, where everyone merges to main frequently with short-lived feature branches, works well for teams that have good CI/CD coverage and high deployment frequency. Gitflow, with its separate develop, release, and hotfix branches, makes more sense for teams that have scheduled release cycles or need to support multiple versions simultaneously.</p>
+            <p>At LTIMindtree we used a variant of Gitflow and it worked reasonably well for an enterprise context where releases were planned and coordinated across teams. On my own projects I prefer trunk-based because it forces you to integrate continuously and surfaces merge conflicts early rather than in a big painful batch.</p>
+
+            <h2>Commit Messages Are Documentation</h2>
+            <p>I became a believer in conventional commits after spending time tracing a bug back through a three-month-old change history. A good commit message answers two questions: what changed and why. The "what" is usually obvious from the diff. The "why" is what gets lost if you just write "fix bug" or "update code."</p>
+            <p>The format I use consistently is a short imperative summary line, followed by a blank line, followed by a paragraph explaining the context if the change is non-trivial. It takes an extra two minutes per commit and saves hours when something breaks six weeks later.</p>
+
+            <h2>Code Review as a Learning Tool</h2>
+            <p>The best code reviews I have been part of were less about catching bugs and more about sharing knowledge. When a reviewer asks "have you considered handling this edge case" or "here is a pattern that might simplify this," the whole team gets better. When reviews become gatekeeping or nitpicking over style preferences, they slow everything down without adding real value.</p>
+            <p>The thing that made the biggest difference for our team was agreeing on what automated tools should catch versus what human reviewers should focus on. Linting, formatting, and basic security checks belong in CI. Human reviewers should focus on logic, architecture, and things that require context a tool cannot have.</p>
+
+            <h2>Keeping a Clean History</h2>
+            <p>Squashing commits before merging, rebasing feature branches instead of merging main into them, and tagging releases properly are habits that feel like overhead until you are debugging a production issue at midnight and need to bisect through six months of history quickly. A clean Git history is one of those things you only appreciate when you need it.</p>
+
+            <div class="blog-nav-footer">
+              <a href="blog-systemdesign.html" class="blog-back">← Previous: System Design</a>
+              <a href="blog-api.html" class="btn btn-outline-blue">Next: REST vs GraphQL →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>Where Web Development is Actually Heading - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .blog-page { padding: 4rem 0 5rem; }
+      .blog-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-decoration: none;
+        margin-bottom: 2.5rem;
+        transition: var(--transition);
+      }
+      .blog-back:hover { color: var(--accent); }
+      .blog-hero {
+        background: var(--primary);
+        border-radius: var(--radius-lg);
+        padding: 3rem;
+        margin-bottom: 3rem;
+      }
+      .blog-hero h1 {
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        color: var(--white);
+        margin-top: 0.75rem;
+        line-height: 1.25;
+      }
+      .blog-hero-meta {
+        color: rgba(255,255,255,0.5);
+        font-size: 0.85rem;
+        margin-top: 1rem;
+        font-family: 'DM Sans', sans-serif;
+      }
+      .blog-body h2 {
+        font-size: 1.4rem;
+        color: var(--text-dark);
+        margin: 2.5rem 0 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .blog-body p {
+        font-size: 1rem;
+        color: var(--text-body);
+        line-height: 1.85;
+        margin-bottom: 1.25rem;
+      }
+      .blog-body ul { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+      .blog-body ul li {
+        font-size: 0.97rem;
+        color: var(--text-body);
+        padding: 0.35rem 0 0.35rem 1.4rem;
+        position: relative;
+        line-height: 1.7;
+      }
+      .blog-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+      .blog-nav-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="projects.html" class="nav-link">All Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link active">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="blog-page">
+        <div class="container" style="max-width:800px;">
+          <a href="ai-generated.html" class="blog-back">← Back to Blogs</a>
+
+          <div class="blog-hero">
+            <span class="blog-tag">Web Development</span>
+            <h1>Where Web Development is Actually Heading</h1>
+            <p class="blog-hero-meta">March 2026 · 5 min read</p>
+          </div>
+
+          <div class="blog-body">
+            <p>Working in enterprise software for a couple of years now, I have seen trends come and go. Some technologies get hyped to death and disappear. Others quietly become the default way everyone builds things. I want to talk about the ones that I think are genuinely reshaping the industry right now.</p>
+
+            <h2>Edge Computing is Bigger Than People Realize</h2>
+            <p>The real shift with edge computing is not just about speed. It is about rethinking where logic lives. When I was building APIs at LTIMindtree, every request had to travel back to a central server no matter where the user was. With edge functions on platforms like Cloudflare Workers or Vercel Edge, you can put business logic 50 milliseconds away from almost anyone on the planet.</p>
+            <p>I have been experimenting with edge deployments on side projects and the difference in perceived performance is real. Users in Europe get the same snappy response as someone sitting in Boston. It changes how you think about personalization, caching, and even authentication flows.</p>
+
+            <h2>WebAssembly is No Longer Experimental</h2>
+            <p>For a long time, WASM felt like a cool demo technology that never made it into real products. That changed. Figma runs on it. Google Earth runs on it. Compute-heavy web apps that would have required a desktop client three years ago now run smoothly in the browser.</p>
+            <p>The interesting part for backend engineers like me is that WASM is also spreading to the server side. Serverless runtimes are starting to use WASM as a sandboxing mechanism instead of Docker containers, which means faster cold starts and better isolation. Worth keeping an eye on if you work with serverless infrastructure.</p>
+
+            <h2>Micro-Frontends: A Real Solution to a Real Problem</h2>
+            <p>At LTIMindtree we had a frontend codebase that had grown over years with contributions from multiple teams. Deploying one feature meant coordinating with everyone because the whole thing was one giant build. Micro-frontends address this by letting teams own and deploy their piece of the UI independently.</p>
+            <p>It is not free. You trade codebase complexity for infrastructure complexity. But for large organizations where frontend deployment bottlenecks are genuinely slowing down product velocity, it is a real solution. The tooling around it has also matured significantly in the last two years.</p>
+
+            <h2>The Framework Debate Has Mostly Settled</h2>
+            <p>React is not going anywhere. Vue is excellent for teams that value a gentler learning curve. Angular dominates enterprise contexts where consistency and structure matter more than flexibility. Svelte and SolidJS are worth learning if you care deeply about runtime performance.</p>
+            <p>What I tell junior engineers is to stop stressing about picking the right framework. The patterns you learn transfer. Learn one deeply, understand the rendering model, understand state management, and the others will make sense faster than you expect.</p>
+
+            <h2>What Actually Separates Good Engineers</h2>
+            <p>The engineers I respect most are not the ones who know the most frameworks. They are the ones who obsess over fundamentals: network behavior, caching strategy, database access patterns, and how browsers actually render pages. Those skills compound over a career in a way that chasing every new JavaScript library simply does not.</p>
+
+            <div class="blog-nav-footer">
+              <a href="ai-generated.html" class="blog-back">← Back to Blogs</a>
+              <a href="blog-ai.html" class="btn btn-outline-blue">Next: AI Tools →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

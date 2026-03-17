@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <meta name="description" content="Blogs by Kanad Motiwale on software, AI, and technology" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>Blogs - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .blog-tiles {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      @media (max-width: 900px) { .blog-tiles { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 580px) { .blog-tiles { grid-template-columns: 1fr; } }
+
+      .blog-tile {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+      }
+      .blog-tile:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent);
+      }
+      .blog-tile-header {
+        background: var(--primary);
+        padding: 1.75rem;
+        flex-shrink: 0;
+      }
+      .blog-tile-header h2 {
+        font-size: 1.05rem;
+        color: var(--white);
+        line-height: 1.35;
+        margin-top: 0.6rem;
+      }
+      .blog-tile-body {
+        padding: 1.25rem 1.75rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .blog-meta {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-bottom: 0.6rem;
+        font-family: 'DM Sans', sans-serif;
+      }
+      .blog-excerpt {
+        font-size: 0.9rem;
+        color: var(--text-body);
+        line-height: 1.65;
+        margin-bottom: 1rem;
+        flex: 1;
+      }
+      .blog-read-more {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--accent);
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .blog-tile:hover .blog-read-more { gap: 0.45rem; color: var(--accent-dark); }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link active">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Blogs</h1>
+          <p class="page-subtitle">Thoughts on software, AI, and where the industry is heading</p>
+        </div>
+      </section>
+
+      <div class="ai-content">
+        <div class="container">
+          <div class="blog-tiles">
+
+            <a href="blog-webdev.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">Web Development</span>
+                <h2>Where Web Development is Actually Heading</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 5 min read</p>
+                <p class="blog-excerpt">Edge computing, WebAssembly, and micro-frontends are changing how we build for the web. Here is what actually matters versus what is just noise.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+            <a href="blog-ai.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">Artificial Intelligence</span>
+                <h2>AI Tools That Are Genuinely Changing How I Work</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 7 min read</p>
+                <p class="blog-excerpt">From coding assistants to research helpers, the AI landscape has expanded fast. I break down what is worth your time and what you can skip.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+            <a href="blog-cloud.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">Cloud Computing</span>
+                <h2>AWS vs GCP vs Azure: How I Actually Choose</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 6 min read</p>
+                <p class="blog-excerpt">After working with all three cloud platforms, here is my honest take on when each one makes sense and what the marketing never tells you.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+            <a href="blog-systemdesign.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">System Design</span>
+                <h2>How I Think About Scalability</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 6 min read</p>
+                <p class="blog-excerpt">Scalability is not just about handling more users. It is about building systems that degrade gracefully and stay maintainable as they grow.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+            <a href="blog-git.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">Developer Workflow</span>
+                <h2>Git Workflows That Actually Work in Teams</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 5 min read</p>
+                <p class="blog-excerpt">Branching strategies, commit conventions, and code review habits that kept our team moving fast without stepping on each other's work.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+            <a href="blog-api.html" class="blog-tile">
+              <div class="blog-tile-header">
+                <span class="blog-tag">API Design</span>
+                <h2>REST vs GraphQL: Choosing the Right API</h2>
+              </div>
+              <div class="blog-tile-body">
+                <p class="blog-meta">March 2026 · 6 min read</p>
+                <p class="blog-excerpt">Both REST and GraphQL are solid choices. The question is which one fits your use case. Here is how I think through that decision on real projects.</p>
+                <span class="blog-read-more">Read article →</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>

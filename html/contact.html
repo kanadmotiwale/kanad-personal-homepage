@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <meta name="description" content="Get in touch with Kanad Motiwale" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>Contact - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Get In Touch</h1>
+          <p class="page-subtitle">Open to opportunities, collaborations, and conversations</p>
+        </div>
+      </section>
+
+      <section class="contact-page">
+        <div class="container">
+          <div class="contact-grid">
+
+            <div class="contact-info">
+              <h2>Let's Connect</h2>
+              <p>Whether you have a job opportunity, a project idea, or just want to talk tech, I'd love to hear from you. I typically respond within 24 hours.</p>
+              <ul class="contact-details">
+                <li>
+                  <span class="contact-icon">📧</span>
+                  <span><a href="mailto:motiwale.k@northeastern.edu">motiwale.k@northeastern.edu</a></span>
+                </li>
+                <li>
+                  <span class="contact-icon">💼</span>
+                  <span><a href="https://www.linkedin.com/in/kanadmotiwale" target="_blank">linkedin.com/in/kanadmotiwale</a></span>
+                </li>
+                <li>
+                  <span class="contact-icon">🐙</span>
+                  <span><a href="https://github.com/kanadmotiwale" target="_blank">github.com/kanadmotiwale</a></span>
+                </li>
+                <li>
+                  <span class="contact-icon">📍</span>
+                  <span>Boston, Massachusetts</span>
+                </li>
+              </ul>
+              <div class="resume-download">
+                <p>Looking for my full background and experience?</p>
+                <a href="../images/Kanad_Motiwale_Resume.pdf" download class="btn btn-outline-blue">⬇ Download Resume (PDF)</a>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+              <h2>Send a Message</h2>
+              <form id="contactForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="John" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="job">Job Opportunity</option>
+                    <option value="internship">Internship</option>
+                    <option value="collaboration">Project Collaboration</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" placeholder="Tell me about your opportunity or project..." required></textarea>
+                </div>
+                <div class="form-submit">
+                  <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+                <div class="form-success" id="formSuccess">
+                  ✅ Message sent successfully! I'll get back to you within 24 hours.
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="../js/main.js"></script>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        const success = document.getElementById('formSuccess');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          success.style.display = 'block';
+          this.reset();
+          setTimeout(() => { success.style.display = 'none'; }, 5000);
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

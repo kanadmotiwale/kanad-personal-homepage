@@ -279,15 +279,15 @@ export const url = {
   },
 
   setParam(key, value) {
-    const url = new URL(window.location);
-    url.searchParams.set(key, value);
-    window.history.pushState({}, "", url);
+    const u = new URL(window.location);
+    u.searchParams.set(key, value);
+    window.history.pushState({}, "", u);
   },
 
   removeParam(key) {
-    const url = new URL(window.location);
-    url.searchParams.delete(key);
-    window.history.pushState({}, "", url);
+    const u = new URL(window.location);
+    u.searchParams.delete(key);
+    window.history.pushState({}, "", u);
   },
 
   hash: {
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ) {
     window.addEventListener("load", () => {
       setTimeout(() => {
-        performance.log();
+        perfUtils.log(); // Fixed: was incorrectly calling performance.log()
       }, 1000);
     });
   }

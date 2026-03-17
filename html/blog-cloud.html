@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kanad Motiwale" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <title>AWS vs GCP vs Azure - Kanad Motiwale</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .blog-page { padding: 4rem 0 5rem; }
+      .blog-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 600; color: var(--text-muted); text-decoration: none; margin-bottom: 2.5rem; transition: var(--transition); }
+      .blog-back:hover { color: var(--accent); }
+      .blog-hero { background: var(--primary); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 3rem; }
+      .blog-hero h1 { font-size: clamp(1.75rem, 3vw, 2.4rem); color: var(--white); margin-top: 0.75rem; line-height: 1.25; }
+      .blog-hero-meta { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 1rem; font-family: 'DM Sans', sans-serif; }
+      .blog-body h2 { font-size: 1.4rem; color: var(--text-dark); margin: 2.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+      .blog-body p { font-size: 1rem; color: var(--text-body); line-height: 1.85; margin-bottom: 1.25rem; }
+      .blog-nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav-brand">Kanad <span>Motiwale</span></a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="projects.html" class="nav-link">All Projects</a></li>
+          <li><a href="ai-generated.html" class="nav-link active">Blogs</a></li>
+          <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="blog-page">
+        <div class="container" style="max-width:800px;">
+          <a href="ai-generated.html" class="blog-back">← Back to Blogs</a>
+
+          <div class="blog-hero">
+            <span class="blog-tag">Cloud Computing</span>
+            <h1>AWS vs GCP vs Azure: How I Actually Choose</h1>
+            <p class="blog-hero-meta">March 2026 · 6 min read</p>
+          </div>
+
+          <div class="blog-body">
+            <p>After working with AWS at LTIMindtree and exploring GCP and Azure through coursework and side projects, I have developed a clear mental model for when each platform makes sense. The marketing from all three clouds is nearly identical, so here is the honest version.</p>
+
+            <h2>AWS: The Default for Good Reason</h2>
+            <p>AWS is the default choice for most startups and a large chunk of the enterprise market because it has been around the longest and has the most mature ecosystem. When I was building Lambda-based microservices at LTIMindtree, AWS made sense because the team already knew it, the hiring pool knows it, and the documentation and community support are unmatched.</p>
+            <p>The downside is that AWS can feel overwhelming. There are over 200 services and the naming is notoriously confusing. If you are just starting out, the breadth of options can slow you down more than help you.</p>
+
+            <h2>GCP: The Best for Data and ML Workloads</h2>
+            <p>Google Cloud is where I would go if the project involves serious machine learning or data pipelines. BigQuery is genuinely excellent for analytics at scale, and the Vertex AI platform is the most cohesive ML workflow I have used. Google also has a networking infrastructure that is hard to beat in terms of raw global latency.</p>
+            <p>The trade-off is that GCP has a smaller community than AWS and fewer third-party integrations. For general application hosting it is perfectly capable, but the compelling reason to choose it is specifically the data and AI tooling.</p>
+
+            <h2>Azure: The Right Call for Enterprise and Microsoft Shops</h2>
+            <p>If the organization already runs on Microsoft products like Active Directory, Office 365, or .NET, Azure is the obvious fit. The integration with existing enterprise tooling is seamless in a way that AWS and GCP simply cannot match. Azure DevOps is also one of the better CI/CD platforms I have worked with.</p>
+            <p>Outside of Microsoft-centric environments, Azure is a solid platform but rarely the first choice for greenfield projects unless the team has specific expertise in it.</p>
+
+            <h2>How I Actually Decide</h2>
+            <p>In practice my decision tree is straightforward. If the team knows AWS and there is no strong reason to switch, I stay on AWS. If the project is ML-heavy or involves large-scale analytics, I look at GCP. If the organization runs on Microsoft infrastructure, Azure is the obvious answer.</p>
+            <p>The technology differences between the three platforms are real but rarely the deciding factor. The more important variables are team familiarity, existing vendor relationships, and where the specific workload fits best.</p>
+
+            <div class="blog-nav-footer">
+              <a href="blog-ai.html" class="blog-back">← Previous: AI Tools</a>
+              <a href="blog-systemdesign.html" class="btn btn-outline-blue">Next: System Design →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">Kanad <span>Motiwale</span></div>
+          <div class="social-links">
+            <a href="https://github.com/kanadmotiwale" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/kanadmotiwale" class="social-link">LinkedIn</a>
+            <a href="mailto:motiwale.k@northeastern.edu" class="social-link">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
